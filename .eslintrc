@@ -1,0 +1,35 @@
+{
+  // #  see ./node_modules/eslint-config-react-app/index.js
+  "extends": "react-app",
+  "globals": {
+    "__DEV__": false,
+    "__RELEASE__": false,
+    "__TEST__": false
+  },
+  "plugins": [
+    "prettier"
+  ],
+
+  "rules": {
+    "prettier/prettier": ["error", {
+      "singleQuote": true,
+      "trailingComma": "all",
+      "bracketSpacing": false,
+      "jsxBracketSameLine": true,
+      "parser": "flow",
+      "printWidth": 100
+    }],
+    "no-duplicate-imports": ["error"],
+    "import/newline-after-import": ["error"],
+    "import/order": ["error", {
+      "groups": ["builtin", "external", "parent", "sibling", "index"],
+      "newlines-between": "always-and-inside-groups"
+    }],
+    "no-alert": ["error"],
+    "jsx-a11y/anchor-is-valid": [ "error", {
+      "components": [ "Anchor" ],
+      "aspects": [ "noHref", "invalidHref", "preferButton" ]
+    }],
+    "no-restricted-imports": ["error", { "paths": ["lodash"] }]
+  }
+}
