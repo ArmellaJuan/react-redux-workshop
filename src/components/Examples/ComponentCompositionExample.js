@@ -5,13 +5,13 @@ import UserForm from '../UserForm';
 import InnerHeader from '../InnerHeader';
 import InnerFooter from '../InnerFooter';
 
-class ComponentCompositionExample extends React.Component {
+export class ComponentCompositionExample extends React.Component {
   render() {
     return (
       <div className="composition-example">
         <InnerHeader />
         <UserList users={this.props.users} />
-        <UserForm onSubmit={user => this.props.addUser(user)} />
+        <UserForm onSubmit={user => this.props.onAddUser(user)} />
         <InnerFooter />
       </div>
     );
@@ -22,7 +22,7 @@ class ComponentCompositionExampleContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {users: []};
-    this.addUser = this.addUser.bind(this);
+    this.handleAddUser = this.handleAddUser.bind(this);
   }
 
   componentDidMount() {
@@ -39,14 +39,16 @@ class ComponentCompositionExampleContainer extends React.Component {
           .then(data => this.setState({users: data}));*/
   }
 
-  addUser(user) {
+  handleAddUser(user) {
     this.setState(prevState => {
       return {users: [...prevState.users, user]};
     });
   }
 
   render() {
-    return <ComponentCompositionExample users={this.state.users} addUser={this.addUser} />;
+    return (
+      <ComponentCompositionExample users={this.state.users} onAddUser={this.handleAddUser} />
+    );
   }
 }
 

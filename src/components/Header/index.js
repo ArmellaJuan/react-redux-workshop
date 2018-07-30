@@ -14,7 +14,10 @@ const Header = () => (
         <Link to="/component-composition">Component Composition</Link>
       </li>
       <li>
-        <Link to="/life-hooks-sample">Life Hooks Sample</Link>
+        <Link to="/life-hooks">Life Hooks</Link>
+      </li>
+      <li>
+        <Link to="/redux">Redux</Link>
       </li>
     </ul>
   </div>

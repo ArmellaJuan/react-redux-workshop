@@ -118,6 +118,7 @@ button, span, li, div, input {
     position: relative;
     height: 100%;
     overflow-y: scroll;
+    padding-top: 42px;
 }
 
 .inner-header, .inner-footer {

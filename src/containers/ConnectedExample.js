@@ -1,5 +1,8 @@
 import {connect} from 'react-redux';
 
+import {ComponentCompositionExample} from '../components/Examples/ComponentCompositionExample';
+import {addUser} from '../actions';
+
 const mapStateToProps = state => {
   return {
     users: state.users,
@@ -9,7 +12,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onAddUser: user => {
-      console.log(user);
+      dispatch(addUser(user));
     },
   };
 };
@@ -17,4 +20,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(TodoList);
+)(ComponentCompositionExample);
