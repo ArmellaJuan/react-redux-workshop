@@ -2,15 +2,27 @@ import React from 'react';
 
 import UserList from '../UserList';
 import UserForm from '../UserForm';
-
-const Header = () => <div className="sample-header">Header</div>;
-
-const Footer = () => <div className="sample-footer">Footer</div>;
+import InnerHeader from '../InnerHeader';
+import InnerFooter from '../InnerFooter';
 
 class ComponentCompositionExample extends React.Component {
+  render() {
+    return (
+      <div className="composition-example">
+        <InnerHeader />
+        <UserList users={this.props.users} />
+        <UserForm onSubmit={user => this.props.addUser(user)} />
+        <InnerFooter />
+      </div>
+    );
+  }
+}
+
+class ComponentCompositionExampleContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {users: []};
+    this.addUser = this.addUser.bind(this);
   }
 
   componentDidMount() {
@@ -23,8 +35,8 @@ class ComponentCompositionExample extends React.Component {
       ],
     });
     /* fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => res.json())
-      .then(data => this.setState({users: data}));*/
+          .then(res => res.json())
+          .then(data => this.setState({users: data}));*/
   }
 
   addUser(user) {
@@ -34,15 +46,8 @@ class ComponentCompositionExample extends React.Component {
   }
 
   render() {
-    return (
-      <div className="composition-sample">
-        <Header />
-        <UserList users={this.state.users} />
-        <UserForm onSubmit={user => this.addUser(user)} />
-        <Footer />
-      </div>
-    );
+    return <ComponentCompositionExample users={this.state.users} addUser={this.addUser} />;
   }
 }
 
-export default ComponentCompositionExample;
+export default ComponentCompositionExampleContainer;

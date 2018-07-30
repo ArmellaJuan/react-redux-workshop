@@ -114,13 +114,13 @@ button, span, li, div, input {
     left: 0;
 }
 
-.composition-sample {
+.composition-example {
     position: relative;
     height: 100%;
     overflow-y: scroll;
 }
 
-.sample-header, .sample-footer {
+.inner-header, .inner-footer {
     width: 100%;
     height: 40px;
     background: #e26674;
@@ -129,12 +129,12 @@ button, span, li, div, input {
     line-height: 40px;
 }
 
-.sample-footer {
+.inner-footer {
     bottom: 0;
     position: fixed;
 }
 
-.sample-header {
+.inner-header {
     top: 0;
     position: absolute;
 }
