@@ -11,7 +11,7 @@ export class ComponentCompositionExample extends React.Component {
       <div className="composition-example">
         <InnerHeader />
         <UserList users={this.props.users} />
-        <UserForm onSubmit={user => this.props.onAddUser(user)} />
+        <UserForm onSubmit={this.props.onAddUser} />
         <InnerFooter />
       </div>
     );
@@ -41,14 +41,12 @@ class ComponentCompositionExampleContainer extends React.Component {
 
   handleAddUser(user) {
     this.setState(prevState => {
-      return {users: [...prevState.users, user]};
+      return {users: prevState.users.concat(user)};
     });
   }
 
   render() {
-    return (
-      <ComponentCompositionExample users={this.state.users} onAddUser={this.handleAddUser} />
-    );
+    return <ComponentCompositionExample users={this.state.users} onAddUser={this.handleAddUser} />;
   }
 }
 

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const UserListItem = props => (
+const UserListItem = ({user}) => (
   <div className="list-item">
-    {props.user.username} - {props.user.email}
+    {user.username} - {user.email}
   </div>
 );
 
