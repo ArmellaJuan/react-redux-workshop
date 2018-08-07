@@ -34,9 +34,6 @@ class ComponentCompositionExampleContainer extends React.Component {
         {id: 4, username: 'Sam', email: 'sam@gmail.com'},
       ],
     });
-    /* fetch('https://jsonplaceholder.typicode.com/users')
-          .then(res => res.json())
-          .then(data => this.setState({users: data}));*/
   }
 
   handleAddUser(user) {
